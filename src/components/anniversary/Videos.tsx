@@ -3,25 +3,42 @@ import { Film, Play } from "lucide-react";
 import { videos } from "@/data/memories";
 import { Reveal, Section, SectionHeading } from "./Section";
 
+function getYouTubeDetails(url?: string) {
+  if (!url) return null;
+  const match = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]+)/);
+  if (match && match[1]) {
+    return {
+      videoId: match[1],
+      embedUrl: `https://www.youtube.com/embed/${match[1]}`,
+      defaultPoster: `https://img.youtube.com/vi/${match[1]}/hqdefault.jpg`,
+    };
+  }
+  return null;
+}
+
 function VideoCard({ video }: { video: (typeof videos)[number] }) {
   const [active, setActive] = useState(false);
+
+  const yt = getYouTubeDetails(video.embedUrl || video.src);
+  const finalEmbedUrl = yt ? yt.embedUrl : video.embedUrl;
+  const finalPoster = video.poster || (yt ? yt.defaultPoster : undefined);
 
   return (
     <figure className="group overflow-hidden rounded-sm border border-border/60 bg-card/40 shadow-[var(--shadow-frame)]">
       <div className="relative aspect-video bg-background">
         {active ? (
-          video.embedUrl ? (
+          finalEmbedUrl ? (
             <iframe
-              src={`${video.embedUrl}${video.embedUrl.includes("?") ? "&" : "?"}autoplay=1`}
+              src={`${finalEmbedUrl}${finalEmbedUrl.includes("?") ? "&" : "?"}autoplay=1`}
               title={video.title}
-              allow="accelerometer; autoplay; encrypted-media; picture-in-picture; fullscreen"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
               allowFullScreen
-              className="size-full"
+              className="size-full border-0"
             />
           ) : (
             <video
               src={video.src}
-              poster={video.poster}
+              poster={finalPoster}
               controls
               autoPlay
               playsInline
@@ -36,9 +53,9 @@ function VideoCard({ video }: { video: (typeof videos)[number] }) {
             aria-label={`Play ${video.title}`}
             className="relative size-full"
           >
-            {video.poster ? (
+            {finalPoster ? (
               <img
-                src={video.poster}
+                src={finalPoster}
                 alt=""
                 loading="lazy"
                 className="size-full object-cover opacity-80 transition-all duration-[1200ms] group-hover:scale-105 group-hover:opacity-100"

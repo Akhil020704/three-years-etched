@@ -4,11 +4,13 @@ import { Loader } from "@/components/anniversary/Loader";
 import { Nav } from "@/components/anniversary/Nav";
 import { Hero } from "@/components/anniversary/Hero";
 import { Gallery } from "@/components/anniversary/Gallery";
+import { Timeline } from "@/components/anniversary/Timeline";
 import { Videos } from "@/components/anniversary/Videos";
 import { LittleThings } from "@/components/anniversary/LittleThings";
 import { Letter } from "@/components/anniversary/Letter";
 import { Finale } from "@/components/anniversary/Finale";
 import { MusicToggle } from "@/components/anniversary/MusicToggle";
+import { AmbientSound } from "@/components/anniversary/AmbientSound";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -31,11 +33,12 @@ function Index() {
       <Nav />
       <Hero />
       <Gallery />
+      <Timeline />
       <Videos />
       <LittleThings />
       <Letter />
       <Finale />
-      <MusicToggle />
+      <AmbientSound />
     </main>
   );
 }
