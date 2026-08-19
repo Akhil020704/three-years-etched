@@ -1,7 +1,7 @@
 /* =========================================================================
  *  THE ONLY FILE YOU NEED TO EDIT
  * =========================================================================
- *  Everything on the website — the timeline, photos, videos, little things,
+ *  Everything on the website — the photos, videos, little things,
  *  the counters, the letter and the ending — is written below.
  *
  *  WHERE DO FILES GO?
@@ -16,6 +16,9 @@
  * ========================================================================= */
 
 export const site = {
+  /** Your names — shown in the nav and the hero. */
+  names: { her: "Manasa", him: "Akhilesh" },
+
   /** Shown on the very first loading screen. */
   loadingLine: "a little something for you…",
 
@@ -24,64 +27,13 @@ export const site = {
   heroTitle: "Three Years.",
   heroSubtitle:
     "Three years of memories, laughter, fights, adventures — and a thousand small moments nobody else will ever know about.",
-  heroButton: "Enter our story",
+  heroButton: "Enter our memories",
 
   /** Tab title / social preview */
   metaTitle: "Three Years — Our Story",
   metaDescription:
     "A quiet memory book for three years of us: our story, our photos, our videos, and everything in between.",
 };
-
-/* -------------------------------------------------------------------------
- *  1. OUR STORY  (timeline)
- *  Add / remove entries freely. Photos and video are optional.
- * ---------------------------------------------------------------------- */
-export type TimelineEntry = {
-  date: string;
-  title: string;
-  text: string;
-  photos?: string[];
-  video?: string;
-};
-
-export const timeline: TimelineEntry[] = [
-  {
-    date: "23 August 2023",
-    title: "The Beginning",
-    text: "Two strangers on Snapchat. No mutual friends, no reason, no plan — just a message that could have gone nowhere and somehow went everywhere. I still think about how easily we could have missed each other.",
-    photos: [],
-  },
-  {
-    date: "Add the date",
-    title: "Our First Memories",
-    text: "Replace this with the first thing that felt real — the first call that lasted too long, the first time we met, the first time it stopped feeling like a coincidence.",
-    photos: [],
-  },
-  {
-    date: "Add the date",
-    title: "The Moments That Changed Everything",
-    text: "The turning point. Write it the way you remember it, not the way it should sound.",
-    photos: [],
-  },
-  {
-    date: "2026",
-    title: "Goa",
-    text: "The one we promised ourselves at the start of the year — and actually kept. There are only a few places left that we haven't covered together.",
-    photos: [],
-  },
-  {
-    date: "Every ordinary day",
-    title: "The Random Little Things",
-    text: "The unremarkable evenings that turned out to be the ones I remember best.",
-    photos: [],
-  },
-  {
-    date: "23 August 2026",
-    title: "Three Years",
-    text: "Here. Still us.",
-    photos: [],
-  },
-];
 
 /* -------------------------------------------------------------------------
  *  2. PHOTO GALLERY

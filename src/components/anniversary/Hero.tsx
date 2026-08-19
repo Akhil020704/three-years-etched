@@ -26,8 +26,14 @@ export function Hero() {
         <p className="fade-slow eyebrow" style={{ animationDelay: "1.8s" }}>
           {site.heroKicker}
         </p>
+        <p
+          className="fade-slow mt-6 font-script text-3xl text-gold-soft sm:text-4xl"
+          style={{ animationDelay: "1.95s" }}
+        >
+          {site.names.her} &amp; {site.names.him}
+        </p>
         <h1
-          className="fade-slow mt-8 font-serif text-6xl leading-[0.95] font-light tracking-tight sm:text-7xl md:text-8xl"
+          className="fade-slow mt-4 font-serif text-5xl leading-[0.95] font-light tracking-tight sm:text-7xl md:text-8xl"
           style={{ animationDelay: "2.1s" }}
         >
           {site.heroTitle}
@@ -40,7 +46,7 @@ export function Hero() {
         </p>
         <div className="fade-slow mt-12" style={{ animationDelay: "3.1s" }}>
           <a
-            href="#story"
+            href="#memories"
             className="group inline-flex items-center gap-3 rounded-full border border-gold/40 px-8 py-4 text-[0.7rem] tracking-[0.28em] text-gold uppercase transition-all duration-500 hover:border-gold hover:bg-gold/10"
           >
             {site.heroButton}

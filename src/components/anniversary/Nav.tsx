@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { site } from "@/data/memories";
 
 const links = [
-  { href: "#story", label: "Our Story" },
   { href: "#memories", label: "Memories" },
   { href: "#videos", label: "Videos" },
   { href: "#little-things", label: "Little Things" },
@@ -31,8 +31,11 @@ export function Nav() {
       )}
     >
       <nav className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-5 sm:px-8">
-        <a href="#top" className="font-serif text-lg tracking-[0.25em] text-gold-soft">
-          III
+        <a
+          href="#top"
+          className="font-serif text-sm tracking-[0.22em] text-gold-soft sm:text-base"
+        >
+          {site.names.her} <span className="text-foreground/40">&amp;</span> {site.names.him}
         </a>
 
         <ul className="hidden items-center gap-9 md:flex">

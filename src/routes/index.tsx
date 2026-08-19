@@ -3,7 +3,6 @@ import { site } from "@/data/memories";
 import { Loader } from "@/components/anniversary/Loader";
 import { Nav } from "@/components/anniversary/Nav";
 import { Hero } from "@/components/anniversary/Hero";
-import { Timeline } from "@/components/anniversary/Timeline";
 import { Gallery } from "@/components/anniversary/Gallery";
 import { Videos } from "@/components/anniversary/Videos";
 import { LittleThings } from "@/components/anniversary/LittleThings";
@@ -31,7 +30,6 @@ function Index() {
       <Loader />
       <Nav />
       <Hero />
-      <Timeline />
       <Gallery />
       <Videos />
       <LittleThings />
