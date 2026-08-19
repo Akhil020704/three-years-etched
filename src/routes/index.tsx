@@ -1,24 +1,43 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { site } from "@/data/memories";
+import { Loader } from "@/components/anniversary/Loader";
+import { Nav } from "@/components/anniversary/Nav";
+import { Hero } from "@/components/anniversary/Hero";
+import { Timeline } from "@/components/anniversary/Timeline";
+import { Gallery } from "@/components/anniversary/Gallery";
+import { Videos } from "@/components/anniversary/Videos";
+import { LittleThings } from "@/components/anniversary/LittleThings";
+import { Letter } from "@/components/anniversary/Letter";
+import { Finale } from "@/components/anniversary/Finale";
+import { MusicToggle } from "@/components/anniversary/MusicToggle";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: site.metaTitle },
+      { name: "description", content: site.metaDescription },
+      { property: "og:title", content: site.metaTitle },
+      { property: "og:description", content: site.metaDescription },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main className="relative min-h-screen bg-background">
+      <Loader />
+      <Nav />
+      <Hero />
+      <Timeline />
+      <Gallery />
+      <Videos />
+      <LittleThings />
+      <Letter />
+      <Finale />
+      <MusicToggle />
+    </main>
   );
 }
